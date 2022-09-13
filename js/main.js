@@ -1,9 +1,13 @@
-let usuario1 = "ian"
-let clave1 = "tutor"
-let usuario
-let clave
+const registrados = [{usuario:"ian",clave:"tutor"}]
+const usuario = {usuario:"",clave:""}
 let msg
 let valido
+let bandera
+
+function users (usuario,clave) {
+    this.usuario = usuario;
+    this.clave = clave
+}
 
 function menu (cant,o1,o2,o3,o4,o5) {
 
@@ -45,22 +49,40 @@ function menu (cant,o1,o2,o3,o4,o5) {
 }
 
 function SolUsuario() {
-    usuario = prompt ("Ingrese usuario")
-    clave = prompt ("Ingrese Clave")
+    bandera = 0
+    while (bandera == 0) {
+        usuario.usuario = prompt ("Ingrese usuario")
+        for (const registrado of registrados) {
+            if (registrado.usuario == usuario.usuario) {
+                alert("El usuario ingresado ya existe, por favor ingrese otro")
+            }
+            else {bandera = 1}
+        }
+    }
+    usuario.clave = prompt ("Ingrese Clave")
+    registrados.push = new users(usuario.usuario,usuario.clave);
+    console.log(registrados)
     valido = true
-    return (usuario,clave)
+    return (usuario.usuario,usuario.clave)
+    
 }
 
 function valida() {
     
     do {
-        usuario = prompt ("Ingrese su usuario o esc para salir")
-        if (usuario == "esc"){
+        bandera = 0
+        usuario.usuario = prompt ("Ingrese su usuario o esc para salir")
+        if (usuario.usuario == "esc"){
             valido = false
             break;
         }else;
-        clave = prompt ("Ingrese su clave")
-        if (usuario == usuario1 && clave == clave1) {
+        usuario.clave = prompt ("Ingrese su clave")
+
+        for (const registrado of registrados) {
+            if (registrado.usuario == usuario.usuario && registrado.clave == usuario.clave) {bandera = 1}
+        }
+
+        if (bandera == 1) {
             valido = true
         }
         else {
@@ -88,13 +110,11 @@ if (eleccion == 1) {
 }
 else if (eleccion == 2) {
     SolUsuario()
-    usuario1 = usuario
-    clave1 = clave
 }
 else;
 
 if (valido) {
-    alert (`Bienvenido ${usuario}!`)
+    alert (`Bienvenido ${usuario.usuario}!`)
 }else {
     alert ('Hasta pronto!')
 }
