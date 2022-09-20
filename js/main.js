@@ -56,6 +56,9 @@ function SolUsuario() {
             if (registrado.usuario == usuario.usuario) {
                 alert("El usuario ingresado ya existe, por favor ingrese otro")
             }
+            else if(usuario.usuario == ""){
+                alert("El usuario no puede estar vacio!")
+            }
             else {bandera = 1}
         }
     }
@@ -114,7 +117,10 @@ else if (eleccion == 2) {
 else;
 
 if (valido) {
-    alert (`Bienvenido ${usuario.usuario}!`)
+    alert (`Proceso exitoso!`)
+    const exito = document.querySelector(".main")
+    exito.innerHTML = `<h1>Bienvenido ${usuario.usuario} </h1>`
+
 }else {
     alert ('Hasta pronto!')
 }
