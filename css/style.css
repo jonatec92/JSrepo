@@ -1,13 +1,518 @@
-body{
+/* Normalize */
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: beige;
+    list-style: none;
+    font-family: 'raleway', sans-serif;
 }
-.main{
+
+p{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+
+/* Header */
+
+header{
+    width: 100%;
+    background: grey;
+    background: hsla(209, 40%, 38%, 0.603);  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, hsla(345, 57%, 34%, 0.801), hsla(209, 40%, 38%, 0.801)), url(../assets/images/exploreEFNOTE.jpg);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, hsla(345, 57%, 34%, 0.801), hsla(209, 40%, 38%, 0.801)), url(../assets/images/exploreEFNOTE.jpg); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-size: cover;
+    background-attachment: fixed;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.top-bar {
+    background: black;
+    border: 0;
+}
+
+.top-bar a{
+color: white;
+}
+
+.menu-superior{
+    height: 80px;
+    display: flex;
+}
+
+.sup-left{
+    width:20%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.sup-left img{
+    width: 130px;
+}
+
+.sup-right{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.caja-usuario{
+    display: flex;
+    padding-right: 1rem;
+}
+
+.caja-usuario ul{
+    margin: 0;
+    display: flex;
+    align-items: flex-end;
+}
+
+.caja-usuario ul li{
+    padding-right: 1rem ;
+}
+
+.caja-usuario ul li a, .caja-usuario ul li{
+    color: #fff;
+    text-decoration: none;
+    font-weight: 400;
+}
+
+.caja-usuario ul li a:hover{
+    color: black;
+}
+
+.caja-usuario ul li a i, .caja-usuario ul li i{
+    padding-right: 2px;
+    font-size: 1.2rem;
+}
+
+.on{
+    display: none !important;
+}
+
+#btn-menu{
+    display: none;
+}
+
+header label{
+    display: none;
+    font-size: 42px;
+    top: 20px;
+    right: 50px;
+    padding: 20px;
+    float: right;
+    color: #fff;
+    position: relative;
+}
+
+header label:hover{
+    cursor: pointer;
+    background: rgba(255, 77, 77, 0.61);
+}
+.menu{
+    margin-left: 1rem;
+    display: flex;
+    align-items:flex-end;
+    overflow: hidden;
+}
+
+.menu ul{
+    margin: 0;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content:flex-end;
+}
+
+.menu li a{
+    display: block;
+    padding-right: 1rem;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.menu li a:hover{
+    color: black;
+}
+
+.header{
+    width: 100%;
+    height: 80vh;
+    background: hsla(209, 40%, 38%, 0.603);  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, hsla(345, 57%, 34%, 0.603), hsla(209, 40%, 38%, 0.603)), url(../assets/images/exploreEFNOTE.jpg);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, hsla(345, 57%, 34%, 0.603), hsla(209, 40%, 38%, 0.603)), url(../assets/images/exploreEFNOTE.jpg); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+}
+
+.header .text-header{
+    display: flex;
+    width: 100%;
+    height: 450px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.text-header h1,.text-header h3{
+    color: white;
+    text-shadow: 0px -2px 8px black;
+    text-align: center;
+}
+.wave{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 150px; overflow: hidden;
+    stroke: none;
+    fill: rgb(255, 255, 255);
+}
+
+/* Main */
+/*Modal*/
+.modal-container{
+    position: fixed;
+    visibility: hidden;
+    z-index: 1000;
+    width: 100%;
     height: 100vh;
-    width: 100vw;
+    top:0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.600);
     display: flex;
     justify-content: center;
+    
+}
+
+.modal-login{
+    width: 17rem;
+    height: 25rem;
+    margin-top: 5%;
+    background-color: #fff;
+    overflow: hidden;
+    border-radius: 2px;
+    transition: transform 0.8s;
+    transform: translateY(0%);
+}
+
+.modal-close{
+    transform: translateY(-200%);
+}
+
+.cruze{
+    height: 10%;
+    display: flex;
+    justify-content: end;
+    background-color: black;
+}
+
+.cruze i{
+    color: rgb(255, 51, 51) ;
+    font-size: 1.3rem;
+    margin: 0.5rem;
+}
+
+.cruze i:hover{
+    color: rgb(186, 55, 55) ;
+}
+
+.modal-login h5{
+    margin: 6% auto;
+    text-align: center;
+}
+
+.msj{
+    text-align: center;
+    border-radius: 2px;
+    font-size: 0.8rem;
+    padding: 0.5rem;
+    color: #4e4e4e;
+}
+
+/* .msj-ok{
+    border: 1px solid;
+    border-color: #ebccd1;
+    background-color: #f2dede;
+    color: #a94442;
+    padding: 0.5rem;
+}
+
+.msj-fail{
+    border: 1px solid;
+    border-color: #ebccd1;
+    background-color: #f2dede;
+    color: #a94442;
+} */
+
+form{
+    margin: 0 1.5rem;
+    text-align: center;
+
+}
+
+/* About */
+
+.img-about{
+    width: 100%;
+    height: 40%;
+}
+.about-title{
+    margin: 40px 0;
+    padding: 20px;
+    border-top: 2px solid rgb(255, 77, 77);
+    border-bottom: 2px solid rgb(255, 77, 77);
+}
+
+/* Video middle */
+
+.video-mid{
+    height: 600px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
     align-items: center;
+    justify-content: center;
+}
+
+.text-center{
+    display: flex;
+
+}
+
+
+.text-video{
+    position: absolute;
+    text-align: center;
+    color: rgb(250, 250, 250);
+    z-index: 1;
+    
+}
+
+.text-video a{
+    text-decoration: none;
+    color: white;
+}
+
+.video-wrap video{
+    width: 1903px;
+    height: 1070.44px;
+    top: -248.219px;
+}
+
+.text-video h2 , .text-video p{
+    font-size: 2rem;
+}
+
+.video-overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: transparent url(../assets/images/grid.png) repeat;
+    background-color: rgba(0,0,0,0.2);
+    backface-visibility:hidden;
+}
+
+/* Ban Middle */
+
+.mid{
+    margin: 3rem 0;
+    height: 100px;
+    background-color: black;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+.mid a{
+    color: white;
+}
+
+.mid a i{
+    margin-left: 1rem;
+}
+
+/* Services */
+
+.services{
+    background-color: rgb(34, 34, 34);
+    color: white;
+    padding: 5%;
+    display: flex;
+}
+
+.services i{
+    color: rgb(255, 77, 77);
+    font-size: 32px;
+    margin-right: 1rem;
+}
+
+/* Footer */
+
+footer{
+    background-color: black;
+    color: #CCC;
+}
+
+.page-scroll{
+    position: fixed;
+    font-size: 40px;
+    display: block;
+    right: 20px !important;
+    width: 40px !important;
+    bottom: 20px;
+    z-index: 999;
+    text-align: right;
+}
+
+footer h2{
+    margin-bottom: 2rem;
+}
+
+footer .adress{
+    background: url('../assets/images/world-map.png') no-repeat center center;
+    background-size: 100%;
+    z-index: 3;
+}
+
+footer .leyenda-jec{
+    display: grid;
+    justify-items: center;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    border-top: 1px solid #CCC;
+    padding: 1rem;
+}
+
+footer ul{
+    padding: 0;
+}
+footer a{
+    text-decoration: none;
+    color: #CCC;
+}
+
+footer a i{
+    margin-right: 1rem;
+}
+footer ul li{
+    padding-bottom: 1rem;
+}
+
+
+/* Productos */
+
+.text-central{
+    display: flex;
+    width: 100%;
+    height: 200px;
+    align-items: center;
+    justify-content: center;
+}
+
+.text-central span{
+    color: rgb(255, 77, 77);
+    margin-right: 1rem;
+}
+
+.product{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border: 1px solid #CCC;
+    margin: 1rem;
+}
+
+.product img{
+    margin-bottom: 1rem;
+}
+
+.product a,.product a:hover{
+    text-decoration: none;
+    color: black;
+}
+
+.product:hover{
+    border-color: rgb(255, 77, 77);
+}
+
+/* Marcas */
+
+.marca{
+    box-shadow: 1px 1px 2px grey;
+    transition: 0.5s;
+}
+
+.marca:hover{
+    box-shadow: 0px 0px 10px rgb(255, 77, 77);
+}
+
+/* Nosotros */
+
+.img-about img{
+    border-radius: 50%;
+}
+
+/* Contacto */
+
+.contact{
+    background-color: rgba(0, 0, 0, 0.76);
+    color: white;
+    padding: 1rem;
+    border-radius: 5px;
+    background: hsla(209, 40%, 38%, 0.603);  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, hsla(345, 57%, 34%, 0.801), hsla(209, 40%, 38%, 0.801));  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, hsla(345, 57%, 34%, 0.801), hsla(209, 40%, 38%, 0.801)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.contact a{
+text-decoration: none;
+color: white;
+}
+
+/* General */
+
+.top-bar a:hover,.about-title span,.icolor,.mid a:hover,footer span,footer a:hover,.contact a:hover{
+    color: rgb(255, 77, 77);
+}
+
+/* Responsive */
+
+@media screen and (max-width:800px) {
+
+    header label{
+        display: block;
+    }
+    
+    .menu{
+        display: block;
+        height: auto;
+        line-height: 5rem;
+        position: absolute;
+        background: rgba(0, 0, 0, 0.9);
+        width: 100%;
+        margin-left: -100%;
+    }
+
+    .menu ul{
+        flex-direction: column;
+    }
+    .menu li{
+        border-bottom: 1px solid #fff;
+        text-align: center;
+    }
+
+    #btn-menu:checked ~ .menu{
+        margin: 0;
+    }
 }
