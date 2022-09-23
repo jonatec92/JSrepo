@@ -54,12 +54,17 @@
                         <ul class="out">
                             <li class="login"><a href="#"><i class="fa-solid fa-arrow-right-to-bracket"></i>Ingresar</a></li>
                             <li><a href="./pages/registro.html"><i class="fa-solid fa-user-plus"></i>Registro</a></li>
-                            <li><a href="#"><i class="fa-solid fa-bag-shopping"></i></a></li>
+                            <li><a href="#"><i class="cart fa-solid fa-bag-shopping"></i></a><div class="registrese on">Debe registrarse para comprar</div></li>
                         </ul>
                         <ul class="in">
-                            <li><i class="nombreUsuario fa-solid fa-user"></i>Invitado</li>
+                            <li><i class="fa-solid fa-user"></i><strong class="nombreUsuario"></strong></li>
                             <li class="logout"><a href="#"><i class="fa-solid fa-arrow-right-to-bracket"></i>Salir</a></li>
-                            <li><a href="#"><i class="fa-solid fa-bag-shopping"></i></a></li>
+                            <li><a href="./pages/carrito.html"><i class="fa-solid fa-bag-shopping"></i>
+                                    <strong>
+                                        <span id="cantidad_carrito" class="cantidad_carrito badge">0</span>
+                                    </strong>
+                                </a>
+                            </li>
                         </ul>
 
                     </div>
@@ -82,7 +87,7 @@
                 </div>
                 <div class="container">
                     <h5>LOGIN</h5>
-                    <h4 class="msj">Si Usted ya se encuentra registrado, por favor complete su Usuario y Clave.</h4>
+                    <h4 class="msj">Si usted ya se encuentra registrado, por favor complete su Usuario y Clave.</h4>
                     <form id="formLogin">
                         <div class="row">
                             <div class="form-group col-md-12">

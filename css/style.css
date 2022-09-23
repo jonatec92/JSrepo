@@ -85,13 +85,37 @@ color: white;
 }
 
 .caja-usuario ul li a i, .caja-usuario ul li i{
-    padding-right: 2px;
+    padding-right: 5px;
     font-size: 1.2rem;
+}
+
+#cantidad_carrito.badge {
+    position: relative;
+    left: -16px;
+    top: 7px;
+    font-size: 0.7rem;
+    background: #51b7b4;
+    border-radius: 15px;
+}
+
+.registrese{
+    position: fixed;
+    font-size: 0.6rem;
+    margin-right: 1rem;
+    border-radius: 5px;
+    padding: 0.2rem;
+    right: 2%;
+    top: 4.5rem;
+    background-color: rgb(255, 77, 77);
 }
 
 .on{
     display: none !important;
 }
+
+/* .in li{
+    display: flex;
+} */
 
 #btn-menu{
     display: none;

@@ -1,10 +1,8 @@
-const registrados = [{usuario:"ian",clave:"tutor"}]
 const usuario = {usuario:"",clave:""}
 let msg
 let valido
 let bandera
-let logdo = 0
-
+// localStorage.removeItem('usuarioActivo')
 logueado()
 
 /* Modal */
@@ -13,6 +11,17 @@ const cerrar = document.querySelector(".cruze")
 const modal = document.querySelector(".modal-login")
 const modalC = document.querySelector(".modal-container")
 const msj = document.querySelector(".msj")
+
+const registrese = document.querySelector(".cart")
+registrese.addEventListener("mouseover",() => {
+    const on = document.querySelector(".registrese")
+    on.classList.remove("on")
+})
+registrese.addEventListener("mouseout",() => {
+    const on = document.querySelector(".registrese")
+    on.classList.add("on")
+})
+
 
 abrir.addEventListener("click", (e) => {
     e.preventDefault()
@@ -63,7 +72,7 @@ formLogin.addEventListener("submit", (e) => {
         setTimeout(() => {
             modalC.style.visibility = "hidden";
         },1300)
-        logdo = 1;
+        localStorage.setItem('userAct',usuario.usuario)
         logueado()
     }else{
         if (bandera !== 1){msj.classList.toggle("alert-danger");}
@@ -77,19 +86,24 @@ formLogin.addEventListener("submit", (e) => {
 const logout = document.querySelector(".logout")
 
 logout.addEventListener("click",(e) => {
-    logdo = 0;
-    logueado()
+    localStorage.removeItem('userAct');
+    location.reload()
 })
 
 function logueado(){
+    let userAct = localStorage.getItem('userAct')
     const logIN = document.querySelector(".in")
     const logOUT = document.querySelector(".out")
-    if (logdo == 1){
+    if (userAct !== null){
         logIN.classList.remove("on")
         logOUT.classList.add("on")
+        const nombreUsuario = document.querySelector(".nombreUsuario")
+        nombreUsuario.innerText = userAct
     }else{
         logIN.classList.add("on")
         logOUT.classList.remove("on")
+        
+        
     }
 }
 
@@ -116,11 +130,25 @@ function SolUsuario() {
 }
 
 function valida(user,pass) {
+    const registrados = obtenerInfoUsuarios()
+    console.log(registrados)
     valido = 0
     for (const registrado of registrados) {
-        if (user == registrado.usuario && pass == registrado.clave) {valido = 1}
+        if (user == registrado.usuario && pass == registrado.clave) {valido = 1}   
+    }
     return (valido);
-}}
+}
+
+function obtenerInfoUsuarios(){
+    let registrados = JSON.parse(localStorage.getItem('registrados'))
+    if (registrados == null) {
+        registrados = [
+            {usuario:"admin", clave: "1234"},
+            {usuario:"jonatan", clave: "2461"}
+        ]  
+    }
+    return registrados;
+}
 
 // menu (2,"Ingresar","Registro",0,0,0)
 // let eleccion = parseInt (prompt (`Bienvenido a JECMUSIC! 
