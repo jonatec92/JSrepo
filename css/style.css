@@ -7,6 +7,10 @@
     font-family: 'raleway', sans-serif;
 }
 
+body{
+    background-color: #f6f6f6 !important;
+}
+
 p{
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
@@ -106,16 +110,12 @@ color: white;
     padding: 0.2rem;
     right: 2%;
     top: 4.5rem;
-    background-color: rgb(255, 77, 77);
+    background-color: rgba(255, 77, 77, 0.8);
 }
 
 .on{
     display: none !important;
 }
-
-/* .in li{
-    display: flex;
-} */
 
 #btn-menu{
     display: none;
@@ -208,7 +208,7 @@ header label:hover{
     height: 100vh;
     top:0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.600);
+    background-color: rgba(0, 0, 0, 0.6);
     display: flex;
     justify-content: center;
     
@@ -218,7 +218,7 @@ header label:hover{
     width: 17rem;
     height: 25rem;
     margin-top: 5%;
-    background-color: #fff;
+    background-color: #f6f6f6;
     overflow: hidden;
     border-radius: 2px;
     transition: transform 0.8s;
@@ -259,25 +259,18 @@ header label:hover{
     color: #4e4e4e;
 }
 
-/* .msj-ok{
-    border: 1px solid;
-    border-color: #ebccd1;
-    background-color: #f2dede;
-    color: #a94442;
-    padding: 0.5rem;
-}
-
-.msj-fail{
-    border: 1px solid;
-    border-color: #ebccd1;
-    background-color: #f2dede;
-    color: #a94442;
-} */
-
-form{
+#formLogin{
     margin: 0 1.5rem;
     text-align: center;
 
+}
+
+
+/*Registro*/
+
+.msjReg{
+    font-size: 1rem;
+    color: crimson;
 }
 
 /* About */
@@ -455,6 +448,7 @@ footer ul li{
     text-align: center;
     border: 1px solid #CCC;
     margin: 1rem;
+    background-color: #fff;
 }
 
 .product img{
@@ -502,6 +496,10 @@ footer ul li{
 .contact a{
 text-decoration: none;
 color: white;
+}
+
+.form-group {
+    margin: 5px;
 }
 
 /* General */
