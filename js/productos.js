@@ -32,7 +32,6 @@ productos.appendChild(producto);
 
 const addToCart = document.querySelector(`#add-${articulo.id}`)
 addToCart.addEventListener("click",() => {
-    console.log("llega")
     const Toast = Swal.mixin({
         toast: true,
         position: 'center',
