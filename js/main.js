@@ -64,7 +64,7 @@ formLogin.addEventListener("submit", (e) => {
     usuario.clave = formLogin.clave.value
     validaUsuarioClave(usuario.usuario,usuario.clave,2)
     if (valido==1) {
-        if (bandera == 1) {msj.classList.toggle("alert-danger");}
+        bandera == 1 && msj.classList.toggle("alert-danger");
         msj.classList.toggle("alert-success");
         msj.innerText = "Login Exitoso!";
         setTimeout(() => {
@@ -76,7 +76,7 @@ formLogin.addEventListener("submit", (e) => {
         localStorage.setItem('userAct',usuario.usuario)
         logueado()
     }else{
-        if (bandera !== 1){msj.classList.toggle("alert-danger");}
+        bandera !== 1 && msj.classList.toggle("alert-danger");
         msj.innerText = "Usuario/Clave incorrecto";
         formLogin.usuario.value = ""
         formLogin.clave.value = ""
@@ -86,7 +86,7 @@ formLogin.addEventListener("submit", (e) => {
 
 const logout = document.querySelector(".logout")
 
-logout.addEventListener("click",(e) => {
+logout.addEventListener("click",() => {
     localStorage.removeItem('userAct');
     location.reload()
 })
@@ -117,31 +117,7 @@ function logueado(){
     }else{
         logIN.classList.add("on")
         logOUT.classList.remove("on")
-        
-        
     }
-}
-
-function SolUsuario() {
-    bandera = 0
-    while (bandera == 0) {
-        usuario.usuario = prompt ("Ingrese usuario")
-        for (const registrado of registrados) {
-            if (registrado.usuario == usuario.usuario) {
-                alert("El usuario ingresado ya existe, por favor ingrese otro")
-            }
-            else if(usuario.usuario == ""){
-                alert("El usuario no puede estar vacio!")
-            }
-            else {bandera = 1}
-        }
-    }
-    usuario.clave = prompt ("Ingrese Clave")
-    registrados.push = new users(usuario.usuario,usuario.clave);
-    console.log(registrados)
-    valido = true
-    return (usuario.usuario,usuario.clave)
-    
 }
 
 function validaUsuarioClave(user,pass,num) {
@@ -149,7 +125,7 @@ function validaUsuarioClave(user,pass,num) {
     valido = 0
     if (num == 1) {
         for (const registrado of registrados) {
-            if (user == registrado.email) {valido = 1}   
+            valido = user == registrado.email && 1   
         }
         return (valido);
     }else if (num == 2){
@@ -184,38 +160,3 @@ function obtenerInfoUsuarios(){
     }
     return registrados;
 }
-
-const registro = document.querySelector("#registro")
-registro.addEventListener("submit", (e) => {
-    e.preventDefault()
-    let mismaClave
-    const msjReg = document.querySelector(".msjReg")
-    console.log(registro.telefono.value)
-    validaUsuarioClave(registro.email.value,0,1)
-    if (registro.clave.value == registro.clave2.value) {mismaClave = 1}else{mismaClave=0}
-    switch (true) {
-        case valido == 1 && mismaClave == 1:
-            msjReg.innerText = "El mail ya se encuentra registrado"
-            break;
-        case valido == 0 && mismaClave == 0:
-            msjReg.innerText = "Las claves no coinciden, porfavor ingrese la misma clave"
-            break;
-        case valido == 1 && mismaClave == 0:
-            msjReg.innerText = "El mail ya se encuentra registrado, ademas las claves no coinciden"
-            break;
-        case valido == 0 && mismaClave == 1:
-            let registrados = JSON.parse(localStorage.getItem('registrados')) || []
-            console.log(registrados)
-            registrados.push (new cliente (registro.nombre.value,registro.apellido.value,registro.email.value,registro.telefono.value,registro.provincia.value,registro.pais.value,registro.clave.value))
-            console.log(registrados)
-            let registradosStrify = JSON.stringify(registrados)
-            localStorage.setItem('registrados',registradosStrify)
-            localStorage.setItem('userAct',registro.email.value)
-            window.location.href="./index.html"
-            logueado()
-            break;   
-        default:
-            console.log("No se pudo chequear el usuario o la clave")
-            break;
-    }
-})
