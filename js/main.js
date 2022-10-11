@@ -74,7 +74,7 @@ formLogin.addEventListener("submit", (e) => {
             modalC.style.visibility = "hidden";
         },1300)
         localStorage.setItem('userAct',usuario.usuario)
-        logueado()
+        window.location.reload()
     }else{
         bandera !== 1 && msj.classList.toggle("alert-danger");
         msj.innerText = "Usuario/Clave incorrecto";
@@ -90,6 +90,16 @@ logout.addEventListener("click",() => {
     localStorage.removeItem('userAct');
     location.reload()
 })
+
+function indexcart (userAct) {
+    const cantCarrito = document.querySelector("#cant_carrito")
+    let carrito = JSON.parse(localStorage.getItem('carrito')) || []
+    let userCantCart = 0
+    for (const cart of carrito) {
+        userCantCart += cart.idCart == userAct && cart.cantidad
+    }
+    cantCarrito.innerText = userCantCart
+}
 
 function logueado(){
     
@@ -114,6 +124,8 @@ function logueado(){
         }
         const nombreUsuario = document.querySelector(".nombreUsuario")
         nombreUsuario.innerText = `${nombre} ${apellido}`
+        indexcart(userAct)
+
     }else{
         logIN.classList.add("on")
         logOUT.classList.remove("on")
@@ -159,4 +171,108 @@ function obtenerInfoUsuarios(){
         localStorage.setItem('registrados',registradosStrify)
     }
     return registrados;
+}
+
+function armaListaProductos (articulos,listarEn) {
+    for (const articulo of articulos) {
+            const producto = document.createElement("div")
+            producto.className = "col-11 col-md-3 cajasOferta"
+            producto.innerHTML = `<div class ="product">
+                                        <div class="prod-img">
+                                            <img src="./assets/images/${articulo.imagen}" class="img-fluid" alt="${articulo.nombre}"> 
+                                        </div>
+                                        <div class="prod-nombre">
+                                            <h4>${articulo.nombre}</h4>
+                                            <span>${articulo.idArt}</span>
+                                        </div>
+                                        <div class="prod-precio">
+                                            <span>$ ${articulo.precio}</span>
+                                        </div>
+                                        <div class="cant-add mt-2">
+                                            <input type="number" name="cantidad" id="cant-${listarEn.classList[0]}-${articulo.idArt}" min="1" class="cantidades mx-2" value="1" required="">
+                                            <input type="button" value="Comprar" id="add-${listarEn.classList[0]}-${articulo.idArt}" class="btn btn-danger btn-compra" title="Sumar a su compra">
+                                        </div>
+                                    </div>`;
+           listarEn.appendChild(producto);
+            let userAct = localStorage.getItem('userAct')
+            if (userAct !== null) {
+                const addProduct = document.querySelector(`#add-${listarEn.classList[0]}-${articulo.idArt}`)
+                const cajaCant = document.querySelector(`#cant-${listarEn.classList[0]}-${articulo.idArt}`)
+                addProduct.addEventListener("click",() => {
+                    let cant = parseInt(cajaCant.value)
+                    let carrito = JSON.parse(localStorage.getItem('carrito')) || []
+                    if (carrito == "") {
+                        carrito =[{item:1,cantidad:cant,idCart:userAct,...articulo}]
+                    }else{
+                        let itemMax = i = 0
+                        let otroIgual
+                        for (const cart of carrito) {
+                            if (userAct == cart.idCart){
+                                if (articulo.idArt == cart.idArt) {
+                                    cart.cantidad += cant 
+                                    otroIgual=1
+                                    break;
+                                }else{
+                                    itemMax = (itemMax < cart.item) && cart.item
+                                    otroIgual = 0
+                                }
+                            }else{i += 1}
+                        }
+                        console.log(itemMax)
+                        otroIgual == 0 && carrito.push({item:(itemMax + 1),cantidad:cant,idCart:userAct,...articulo})
+                        i == carrito.length && carrito.push({item:1,cantidad:cant,idCart:userAct,...articulo})
+                    }
+                    console.log(carrito)
+                    carritoStrify = JSON.stringify(carrito)
+                    localStorage.setItem('carrito',carritoStrify)
+                    indexcart(userAct)
+
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'center',
+                        showConfirmButton: false,
+                        timer: 2000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.addEventListener('mouseenter', Swal.stopTimer)
+                            toast.addEventListener('mouseleave', Swal.resumeTimer)
+                        }
+                    })
+                        
+                    Toast.fire({
+                        icon: 'success',
+                        title: `${articulo.nombre} Agregado al carrito!`
+                    })
+                })    
+            }else {
+                const cantAdd = document.querySelector(".cant-add")
+                cantAdd.className = "d-none"
+            }
+    }        
+      
+}
+
+function cargarArt (listarEn,categoria){
+const cargarArti = async () => {
+    const arrayArt = await fetch('../data/articulos.json')
+    const articulos = await arrayArt.json()
+    const catArt = await fetch('../data/cat-articulos.json')
+    const catArticulos = await catArt.json()
+    artListar = filtraArt(articulos,catArticulos,categoria)
+    armaListaProductos(artListar,listarEn)
+}
+cargarArti()
+
+}
+
+function filtraArt (articulos,artFiltrar,categ){
+    let articulosMostrar = []
+    for (const arti of articulos) {
+        for (const articulo of artFiltrar) {
+            if (articulo.categoria == categ && arti.idArt == articulo.idArt) {
+                articulosMostrar.push(arti)
+            }  
+        }
+    }
+    return articulosMostrar
 }

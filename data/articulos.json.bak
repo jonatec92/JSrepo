@@ -1,0 +1,8 @@
+[
+    {"idArt":"DRUM-001","nombre":"Bateria DW X-SERIES","precio":5000,"imagen":"DRUM-001.jpg"},
+    {"idArt":"DRUM-002","nombre":"Bateria DW X-SERIES","precio":5000,"imagen":"DRUM-001.jpg"},
+    {"idArt":"DRUM-003","nombre":"Bateria DW X-SERIES","precio":5000,"imagen":"DRUM-001.jpg"},
+    {"idArt":"DRUM-004","nombre":"Bateria DW X-SERIES","precio":5000,"imagen":"DRUM-001.jpg"},
+    {"idArt":"DRUM-005","nombre":"Bateria DW X-SERIES","precio":5000,"imagen":"DRUM-001.jpg"},
+    {"idArt":"DRUM-006","nombre":"Bateria DW X-SERIES","precio":5000,"imagen":"DRUM-001.jpg"}
+]
