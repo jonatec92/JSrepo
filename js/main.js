@@ -254,9 +254,9 @@ function armaListaProductos (articulos,listarEn) {
 
 function cargarArt (listarEn,categoria){
 const cargarArti = async () => {
-    const arrayArt = await fetch('../data/articulos.json')
+    const arrayArt = await fetch('./data/articulos.json')
     const articulos = await arrayArt.json()
-    const catArt = await fetch('../data/cat-articulos.json')
+    const catArt = await fetch('/data/cat-articulos.json')
     const catArticulos = await catArt.json()
     artListar = filtraArt(articulos,catArticulos,categoria)
     armaListaProductos(artListar,listarEn)
