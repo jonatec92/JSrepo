@@ -88,7 +88,7 @@ const logout = document.querySelector(".logout")
 
 logout.addEventListener("click",() => {
     localStorage.removeItem('userAct');
-    location.reload()
+    location.href = "./index.html"
 })
 
 function indexcart (userAct) {
@@ -165,7 +165,7 @@ function obtenerInfoUsuarios(){
     if (registrados == null) {
 
         registrados = [
-            new cliente ("admin","admin","admin@admin","1111111111","buenos aires","argentina","1234")
+            new cliente ("Administrador","JEC Music","admin@admin","1163536950","Buenos Aires","Argentina","1234")
         ]
         let registradosStrify = JSON.stringify(registrados)
         localStorage.setItem('registrados',registradosStrify)
@@ -176,9 +176,9 @@ function obtenerInfoUsuarios(){
 function armaListaProductos (articulos,listarEn) {
     for (const articulo of articulos) {
             const producto = document.createElement("div")
-            producto.className = "col-11 col-md-3 cajasOferta"
+            producto.className = "col-6 col-md-4 col-lg-3 cajasOferta"
             producto.innerHTML = `<div class ="product">
-                                        <div class="prod-img">
+                                        <div class="prod-img d-flex align-items-center">
                                             <img src="./assets/images/${articulo.imagen}" class="img-fluid" alt="${articulo.nombre}"> 
                                         </div>
                                         <div class="prod-nombre">
@@ -193,7 +193,7 @@ function armaListaProductos (articulos,listarEn) {
                                             <input type="button" value="Comprar" id="add-${listarEn.classList[0]}-${articulo.idArt}" class="btn btn-danger btn-compra" title="Sumar a su compra">
                                         </div>
                                     </div>`;
-           listarEn.appendChild(producto);
+            listarEn.appendChild(producto);
             let userAct = localStorage.getItem('userAct')
             if (userAct !== null) {
                 const addProduct = document.querySelector(`#add-${listarEn.classList[0]}-${articulo.idArt}`)
@@ -218,11 +218,9 @@ function armaListaProductos (articulos,listarEn) {
                                 }
                             }else{i += 1}
                         }
-                        console.log(itemMax)
                         otroIgual == 0 && carrito.push({item:(itemMax + 1),cantidad:cant,idCart:userAct,...articulo})
                         i == carrito.length && carrito.push({item:1,cantidad:cant,idCart:userAct,...articulo})
                     }
-                    console.log(carrito)
                     carritoStrify = JSON.stringify(carrito)
                     localStorage.setItem('carrito',carritoStrify)
                     indexcart(userAct)
@@ -241,7 +239,7 @@ function armaListaProductos (articulos,listarEn) {
                         
                     Toast.fire({
                         icon: 'success',
-                        title: `${articulo.nombre} Agregado al carrito!`
+                        title: `${articulo.nombre}\nAgregado al carrito!`
                     })
                 })    
             }else {
@@ -254,9 +252,9 @@ function armaListaProductos (articulos,listarEn) {
 
 function cargarArt (listarEn,categoria){
 const cargarArti = async () => {
-    const arrayArt = await fetch('../data/articulos.json')
+    const arrayArt = await fetch('./data/articulos.json')
     const articulos = await arrayArt.json()
-    const catArt = await fetch('../data/cat-articulos.json')
+    const catArt = await fetch('./data/cat-articulos.json')
     const catArticulos = await catArt.json()
     artListar = filtraArt(articulos,catArticulos,categoria)
     armaListaProductos(artListar,listarEn)
@@ -276,3 +274,40 @@ function filtraArt (articulos,artFiltrar,categ){
     }
     return articulosMostrar
 }
+
+const drop = document.querySelector("#drop")
+const categMenu = document.querySelector(".categ-menu")
+drop.addEventListener("mouseover",()=>{
+    categMenu.classList.remove("d-none")
+})
+categMenu.addEventListener("mouseover",()=>{
+    categMenu.classList.remove("d-none")
+})
+drop.addEventListener("mouseout",()=>{
+    categMenu.classList.add("d-none")
+})
+categMenu.addEventListener("mouseout",()=>{
+    categMenu.classList.add("d-none")
+})
+
+const productosFull = document.querySelector("#productosFull")
+const accesorios = document.querySelector("#accesorios")
+const baterias = document.querySelector("#baterias")
+const bajos = document.querySelector("#bajos")
+const guitarras = document.querySelector("#guitarras")
+const teclados = document.querySelector("#teclados")
+const sonido = document.querySelector("#sonido")
+productosFull.addEventListener("click",()=>{localStorage.setItem('categ-activa','productosFull')})
+accesorios.addEventListener("click",()=>{localStorage.setItem('categ-activa','accesorios')})
+baterias.addEventListener("click",()=>{localStorage.setItem('categ-activa','baterias')})
+bajos.addEventListener("click",()=>{localStorage.setItem('categ-activa','bajos')})
+guitarras.addEventListener("click",()=>{localStorage.setItem('categ-activa','guitarras')})
+teclados.addEventListener("click",()=>{localStorage.setItem('categ-activa','teclados')})
+sonido.addEventListener("click",()=>{localStorage.setItem('categ-activa','sonido')})
+
+
+const btn = document.querySelector("#btn-menu")
+btn.addEventListener("click", () => {
+    const menu = document.querySelector(".menu")
+    menu.classList.toggle("d-block")
+})

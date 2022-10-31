@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="description" content="JEC MUSIC, nuestros productos, encontra todo lo que buscas.">
+   	<meta name="keywords"  content="instrumentos musicales, musica, baterias,guitarras, teclados, musica">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./assets/images/favicon.png">
+    <title>Jec Music | Productos</title>
+    <!--Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <!--Hojas de estilo-->
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://kit.fontawesome.com/e5fc0451f1.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+<!-- Body -->
+<body>
+    <div class="container-fluid p-0">
+        <!--Cabecera-->
+        <header>
+            <div class="top-bar">
+                <div class="container">
+                    <div class="d-flex justify-content-end gap-2">
+                        <a href="https://es-la.facebook.com/jone.ema/" target="_blank"><i class="fa-brands fa-facebook-square"></i></a>
+                        <a href="https://www.instagram.com/jona.ema/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/channel/UCZpUSXrR5arl6hX2EoPVSOA" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-superior">
+                <div class="sup-left">
+                    <a href="./index.html">
+                        <img src="./assets/images/logo.png" alt="Logo JEC Music">
+                    </a>
+                    <div id="btn-menu">
+                        <span><i class="fa-solid fa-bars"></i></span>
+                    </div>
+                </div>
+                <div class="sup-right">
+                    <nav class="menu">
+                        <ul>
+                            <div>
+                                <li id="drop"><a id="productosFull" href="./productos.html">PRODUCTOS</a></li>
+                                <ul class="categ-menu d-none">
+                                    <li><a id="accesorios" href="./productos.html">Accesorios</a></li>
+                                    <li><a id="baterias" href="./productos.html">Baterias</a></li>
+                                    <li><a id="bajos" href="./productos.html">Bajos</a></li>
+                                    <li><a id="guitarras" href="./productos.html">Guitarras</a></li>
+                                    <li><a id="teclados" href="./productos.html">Teclados</a></li>
+                                    <li><a id="sonido" href="./productos.html">Sonido</a></li>
+                                </ul>
+                            </div>
+                            <li><a href="./marcas.html">MARCAS</a></li>
+                            <li><a href="./nosotros.html">NOSOTROS</a></li>
+                            <li><a href="./contacto.html">CONTACTO</a></li>
+                        </ul>
+                    </nav>
+                    <div class="caja-usuario">
+                        <ul class="out">
+                            <li class="login"><a href="#"><i class="fa-solid fa-arrow-right-to-bracket"></i>Ingresar</a></li>
+                            <li><a href="./registro.html"><i class="fa-solid fa-user-plus"></i>Registro</a></li>
+                            <li><a href="#"><i class="cart fa-solid fa-bag-shopping"></i></a><div class="registrese on">Debe registrarse para comprar</div></li>
+                        </ul>
+                        <ul class="in">
+                            <li><i class="fa-solid fa-user"></i><strong class="nombreUsuario"></strong></li>
+                            <li class="logout"><a href="#"><i class="fa-solid fa-arrow-right-to-bracket"></i>Salir</a></li>
+                            <li><a href="./carrito.html"><i class="fa-solid fa-bag-shopping"></i>
+                                    <strong>
+                                        <span id="cant_carrito" class="cantidad_carrito badge">0</span>
+                                    </strong>
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Fin de Cabecera-->
+        <!-- Modal login -->
+        <div class="modal-container">
+            <div class="modal-login modal-close">
+                <div class="cruze">
+                    <i class="fa-regular fa-circle-xmark"></i>
+                </div>
+                <div class="container">
+                    <h5>LOGIN</h5>
+                    <h4 class="msj">Si usted ya se encuentra registrado, por favor complete su Usuario y Clave.</h4>
+                    <form id="formLogin">
+                        <div class="row">
+                            <div class="form-group col-md-12">
+                                <label>Usuario</label>
+                                <input type="text" name="usuario" autofocus="" value="" class="form-control" title="Usuario" required="">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label>Clave</label>
+                                <input type="password" name="clave" value="" class="form-control" title="Clave" required="">
+                            </div>
+                            <div class= "form-group col-md-12 mt-4">
+                                <button type="submit" name="submit" class="btn btn-danger" value="" aria-label="LOGIN">Login >></button>                            </div>
+                            </div>
+                        </form>
+                </div>
+            </div>
+        </div>
+        <!-- Fin Modal login -->
+        <!-- Main -->
+        <main>
+            <section class="my-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <ul class="orderStep">
+                              <li class="active"><i class="fa fa-truck "> </i><span>CARRITO / ENTREGA / PAGO</span></li>
+                              <li><i class="fa fa-check-square "> </i><span>CONFIRMACION DE COMPRA</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="my-3">
+                        <div class="col-lg-12 col-md-12 col-sm-12 cabCart">
+                            <div class="col-lg-6 col-md-6 col-sm-6 detail">
+                                <h6>DETALLE DE LA COMPRA - JEC MUSIC</h6>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 addArt">
+                                <a href="./index.html#hash" target="_self"><button type="button" class="btn btn-danger"><i class="fa fa-arrow-left"></i> &nbsp; Agregar productos</button></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="col-xs-12 col-sm-12">
+                                <div class="msginfo" id="msgNoCart">No ha seleccionado ningun producto</div>
+                                <div id="cartSteps">
+                                    <div class="cartContent">
+                                        <table class="cartTable table-responsive" id="carrito">
+                                            <tbody>
+                                                <tr class="CartProduct cartTableHeader">
+                                                    <td class="hidden-xs">Producto</td>
+                                                    <td class="car-nombre">Nombre</td>
+                                                    <td class="car-precio">Precio</td>
+                                                    <td class="car-cant">Cant.</td>
+                                                    <td class="car-subt">SubTotal</td>
+                                                    <td class="delete">Elim.</td>
+                                                </tr>
+                                            </tbody>
+                                        
+                                        </table>
+                                    </div>
+                                    <div class="cartFooter">
+                                    <div class="box-footer">
+                                            <table class="cartTable table-responsive" id="carrito">
+                                                <tbody>
+                                                    <tr class="py-2 d-flex justify-content-end">
+                                                        <td class="col-lg-2 col-6 subTotal"><strong>SubTotal</strong></td>
+                                                        <td class="col-lg-3 col-6 subTotal" id="subTotal"></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                    </div>
+                                    <form id="compra">
+                                        <div class="my-5 d-flex justify-content-between">
+                                            <div class="col-md-5">
+                                                <div class="col-12 my-3">
+                                                    <div class="col-lg-12 col-md-12 col-sm-12 cabCart">
+                                                        <div class="detail mx-auto">
+                                                            <h6><i class="fa fa-truck "> </i> FORMAS DE ENTREGA</h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <table class="table-bordered table" id="formDry">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="hidden-xs">#</td>
+                                                            <td class="car-nombre">Opcion</td>
+                                                            <td class="car-precio">Precio</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="hidden-xs">
+                                                                <input type="radio" name="entrega" value="10" id="op_dry_1" required>
+                                                            </td>
+                                                            <td class="car-nombre"><label for="op_dry_1" style="cursor:pointer" onclick="opFormas(1)">Retiro en Local</label></td>
+                                                            <td class="car-precio">$ 0</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="hidden-xs">
+                                                                <input type="radio" name="entrega" value="10" id="op_dry_2">
+                                                            </td>
+                                                            <td class="car-nombre"><label for="op_dry_2" style="cursor:pointer" onclick="opFormas(2)">Coordinar con el vendedor</label></td>
+                                                            <td class="car-precio">$ 0</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="hidden-xs">
+                                                                <input type="radio" name="entrega" value="10" id="op_dry_3">
+                                                            </td>
+                                                            <td class="car-nombre"><label for="op_dry_3" style="cursor:pointer" onclick="opFormas(3)">Envio a domicilio</label></td>
+                                                            <td class="car-precio">$ 800</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <div class="col-12 my-3">
+                                                    <div class="col-lg-12 col-md-12 col-sm-12 cabCart">
+                                                        <div class="detail mx-auto">
+                                                            <h6><i class="fa fa-money"> </i> FORMAS DE PAGO</h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <table class="table-bordered table" id="formFp">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="hidden-xs">#</td>
+                                                            <td class="car-nombre">Opcion</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="hidden-xs">
+                                                                <input type="radio" name="pago" value="10" id="op_fp_1" required>
+                                                            </td>
+                                                            <td class="car-nombre"><label for="op_fp_1" style="cursor:pointer" onclick="opFormas(4)">Efectivo</label></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="hidden-xs">
+                                                                <input type="radio" name="pago" value="10" id="op_fp_2">
+                                                            </td>
+                                                            <td class="car-nombre"><label for="op_fp_2" style="cursor:pointer" onclick="opFormas(5)">Transferencia Bancaria</label></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="hidden-xs">
+                                                                <input type="radio" name="pago" value="10" id="op_fp_3">
+                                                            </td>
+                                                            <td class="car-nombre"><label for="op_fp_3" style="cursor:pointer" onclick="opFormas(6)">Coordinar con el vendedor</label></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="my-5 d-flex justify-content-center">
+                                            <div class="col-md-6">
+                                                <div class="col-12 my-3">
+                                                    <div class="col-lg-12 col-md-12 col-sm-12 cabCart">
+                                                        <div class="detail mx-auto">
+                                                            <h6><i class="fa fa-check-square " aria-hidden="true"> </i> RESUMEN DE COMPRA</h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <table class="table-bordered table" id="formRes">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="hidden-xs">Subtotal</td>
+                                                            <td id="resSubTotal"></td>
+                                                            <td rowspan="3" class="align-bottom">
+                                                                <button type="submit" name="confirmar_compra" id="confirmar_compra" class="btn  btn-success">Confirmar Compra</button>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="hidden-xs">Costo de Envio</td>
+                                                            <td id="resDry"><strong>$ 0</strong></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="hidden-xs">TOTAL A PAGAR :</td>
+                                                            <td id="resTotal"></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                              </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- Fin Main -->
+        <!-- Footer -->
+        <footer>
+            <a href="#" class="page-scroll aparece"><i class="fa fa-arrow-circle-up" aria-hidden="true"></i></a>
+            <div class="container mt-1 mb-5 py-5">
+                <div class="row pt-5">
+                    <div class="col-md-4 px-5 mb-3">
+                        <h2><span>JEC</span>MUSIC</h2>
+                        <p><strong>Distribuimos y representamos</strong> a lo largo de todo el país marcas de guitarras/bajos, instrumentos de viento, instrumentos de cuerda, pianos y teclados, baterías, platillos, micrófonos, audio y todo tipo de accesorios musicales.</p>
+                        <div class="adress">
+                            <p><strong>Local de Venta al público:</strong><br>Av. de Mayo 1882<br>Ramos Mejia, BA, CP 1704<br>República Argentina.<br><strong>Contacto Mayoristas: </strong>ventas@jecmusic.com.ar
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col d-grid justify-content-center">
+                        <div class="d-flex  flex-column">
+                            <h2>Conocé +</h2>
+                            <ul gap>
+                                <li><a href="./productos.html">PRODUCTOS</a></li>
+                                <li><a href="./marcas.html">MARCAS</a></li>
+                                <li><a href="./nosotros.html">NOSOTROS</a></li>
+                                <li><a href="./contacto.html">CONTACTO</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <h2>Venta al público:</h2>
+                        <ul>
+                            <li><a href="mailto:info@jecmusic.com.ar"><i class="fa-solid fa-envelope"></i>info@jecmusic.com.ar</a></li>
+                            <li><a href="tel:+54114793-2400"><i class="fa-solid fa-phone"></i>(+5411) 4793-2400</p></a></li>
+                        </ul>
+                        <div class="gap-2">
+                            <a href="https://es-la.facebook.com/jone.ema/" target="_blank"><i class="fa-brands fa-facebook-square fa-2x"></i></a>
+                            <a href="https://www.instagram.com/jona.ema/" target="_blank"><i class="fa-brands fa-instagram fa-2x"></i></a>
+                            <a href="https://www.youtube.com/channel/UCZpUSXrR5arl6hX2EoPVSOA" target="_blank"><i class="fa-brands fa-youtube fa-2x"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="leyenda-jec">
+                    <p>© JEC Music | Instrumentos Musicales | Workshops</p>
+                </div>
+            </div>
+        </footer>
+        <!-- Fin Footer -->
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/carrito.js"></script>     
+</body>
+<!-- Body -->
+</html>
