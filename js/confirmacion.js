@@ -1,3 +1,4 @@
+// Graba en el dom los datos del cliente y el pedido
 const userAct = localStorage.getItem('userAct')
 const registrados = JSON.parse(localStorage.getItem('registrados'))
 const opFormas = JSON.parse(localStorage.getItem('opFormas'))

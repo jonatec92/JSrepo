@@ -1,3 +1,4 @@
+// Recibe los datos del registro y valida usuario clave, si esta ok crea el nuevo cliente dentro de los registrados
 const registro = document.querySelector("#registro")
 registro.addEventListener("submit", (e) => {
     e.preventDefault()
