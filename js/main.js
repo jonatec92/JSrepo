@@ -5,7 +5,7 @@ let bandera
 
 logueado()
 
-// Mensaje sobre el icono del carrito
+// Mensaje sobre el icono del carrito -->
 const registrese = document.querySelector(".cart")
 registrese.addEventListener("mouseover",() => {
     const on = document.querySelector(".registrese")
@@ -15,8 +15,9 @@ registrese.addEventListener("mouseout",() => {
     const on = document.querySelector(".registrese")
     on.classList.add("on")
 })
+// Mensaje sobre el icono del carrito /-->
 
-/* Modal */
+// Modal -->
 const abrir = document.querySelector(".login")
 const cerrar = document.querySelector(".cruze")
 const modal = document.querySelector(".modal-login")
@@ -56,6 +57,10 @@ window.addEventListener("click", (e) => {
     }
 })
 
+// Modal /-->
+
+// Login usuario -->
+
 const formLogin = document.querySelector("#formLogin")
 
 formLogin.addEventListener("submit", (e) => {
@@ -83,14 +88,17 @@ formLogin.addEventListener("submit", (e) => {
         bandera=1
     }
 })
+// Login usuario /-->
 
+// Logout usuario -->
 const logout = document.querySelector(".logout")
-
 logout.addEventListener("click",() => {
     localStorage.removeItem('userAct');
     location.href = "./index.html"
 })
+// Logout usuario /-->
 
+// Indicador de articulos en carrito -->
 function indexcart (userAct) {
     const cantCarrito = document.querySelector("#cant_carrito")
     let carrito = JSON.parse(localStorage.getItem('carrito')) || []
@@ -100,9 +108,10 @@ function indexcart (userAct) {
     }
     cantCarrito.innerText = userCantCart
 }
+// Indicador de articulos en carrito /-->
 
+// Verifica si hay un usuario logueado y prende las opciones de usuario registrado -->
 function logueado(){
-    
     let userAct = localStorage.getItem('userAct')
     const logIN = document.querySelector(".in")
     const logOUT = document.querySelector(".out")
@@ -131,7 +140,9 @@ function logueado(){
         logOUT.classList.remove("on")
     }
 }
+// Verifica si hay un usuario Logueado y prende las opciones de usuario registrado /-->
 
+// Valida usuario o usuario y clave -->
 function validaUsuarioClave(user,pass,num) {
     const registrados = obtenerInfoUsuarios()
     valido = 0
@@ -147,7 +158,9 @@ function validaUsuarioClave(user,pass,num) {
         return (valido);
     }
 }
+// Valida usuario o usuario y clave /-->
 
+// Constructor de usuarios -->
 class cliente {
     constructor(nombre, apellido, email, telefono, provincia, pais, clave) {
         this.nombre = nombre
@@ -159,7 +172,9 @@ class cliente {
         this.clave = clave
     }
 }
+// Constructor de usuarios /-->
 
+// Obtener los usuarios registrados o bien crea el default -->
 function obtenerInfoUsuarios(){
     let registrados = JSON.parse(localStorage.getItem('registrados'))
     if (registrados == null) {
@@ -172,7 +187,9 @@ function obtenerInfoUsuarios(){
     }
     return registrados;
 }
+// Obtener los usuarios registrados o bien crea el default /-->
 
+// Arma listado de articulos -->
 function armaListaProductos (articulos,listarEn) {
     for (const articulo of articulos) {
             const producto = document.createElement("div")
@@ -246,10 +263,11 @@ function armaListaProductos (articulos,listarEn) {
                 const cantAdd = document.querySelector(".cant-add")
                 cantAdd.className = "d-none"
             }
-    }        
-      
+    } 
 }
+// Arma listado de articulos /-->
 
+// Arma listado de articulos segun categoria -->
 function cargarArt (listarEn,categoria){
 const cargarArti = async () => {
     const arrayArt = await fetch('./data/articulos.json')
@@ -260,9 +278,10 @@ const cargarArti = async () => {
     armaListaProductos(artListar,listarEn)
 }
 cargarArti()
-
 }
+// Arma listado de articulos segun categoria /-->
 
+// Filtra articulos a mostrar del total de articulos -->
 function filtraArt (articulos,artFiltrar,categ){
     let articulosMostrar = []
     for (const arti of articulos) {
@@ -274,7 +293,9 @@ function filtraArt (articulos,artFiltrar,categ){
     }
     return articulosMostrar
 }
+// Filtra articulos a mostrar del total de articulos /-->
 
+// Despliegue del menu de categorias -->
 const drop = document.querySelector("#drop")
 const categMenu = document.querySelector(".categ-menu")
 drop.addEventListener("mouseover",()=>{
@@ -289,7 +310,9 @@ drop.addEventListener("mouseout",()=>{
 categMenu.addEventListener("mouseout",()=>{
     categMenu.classList.add("d-none")
 })
+// Despliegue del menu de categorias /-->
 
+// Sube al localStorage la categoria seleccionada -->
 const productosFull = document.querySelector("#productosFull")
 const accesorios = document.querySelector("#accesorios")
 const baterias = document.querySelector("#baterias")
@@ -304,10 +327,12 @@ bajos.addEventListener("click",()=>{localStorage.setItem('categ-activa','bajos')
 guitarras.addEventListener("click",()=>{localStorage.setItem('categ-activa','guitarras')})
 teclados.addEventListener("click",()=>{localStorage.setItem('categ-activa','teclados')})
 sonido.addEventListener("click",()=>{localStorage.setItem('categ-activa','sonido')})
+// Sube al localStorage la categoria seleccionada /-->
 
-
+// Muestra el menu responsive -->
 const btn = document.querySelector("#btn-menu")
 btn.addEventListener("click", () => {
     const menu = document.querySelector(".menu")
     menu.classList.toggle("d-block")
 })
+// Muestra el menu responsive /-->
